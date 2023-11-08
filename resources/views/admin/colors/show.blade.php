@@ -31,8 +31,8 @@
                                         <tr>
                                             <th>Title</th>
                                             <td>
-                                                <div style="display:inline-block;">{{ $color->title }}</div>
                                                 <div style="width:16px; height:16px; background:{{ $color->title }}; display:inline-block;"></div>
+                                                <div style="display:inline-block;">{{ $color->title }}</div>
                                             </td>
                                         </tr>
                                     </tbody>

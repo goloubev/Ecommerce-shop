@@ -43,8 +43,8 @@
                                                 <tr>
                                                     <td>{{ $color->id }}</td>
                                                     <td>
-                                                        <div style="display:inline-block;">{{ $color->title }}</div>
                                                         <div style="width:16px; height:16px; background:{{ $color->title }}; display:inline-block;"></div>
+                                                        <div style="display:inline-block;">{{ $color->title }}</div>
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('admin.color.show', ['color' => $color]) }}"><i class="fas fa-eye"></i></a>
