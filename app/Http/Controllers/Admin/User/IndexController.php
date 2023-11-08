@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Tag;
+namespace App\Http\Controllers\Admin\User;
 
-use App\Models\Tag;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 
@@ -10,10 +10,10 @@ class IndexController extends Controller
 {
     public function __invoke(): View
     {
-        $tags = Tag::all();
+        $users = User::all();
 
-        return view('admin/tags/index', [
-            'tags' => $tags,
+        return view('admin/users/index', [
+            'users' => $users,
         ]);
     }
 }

@@ -33,3 +33,13 @@ Route::group(['prefix' => 'colors'], function() {
     Route::post('/{color}/update', \App\Http\Controllers\Admin\Color\UpdateController::class)->name('admin.color.update');
     Route::post('/{color}/delete', \App\Http\Controllers\Admin\Color\DeleteController::class)->name('admin.color.delete');
 });
+
+Route::group(['prefix' => 'users'], function() {
+    Route::get('/', \App\Http\Controllers\Admin\User\IndexController::class)->name('admin.user.index');
+    Route::get('/create', \App\Http\Controllers\Admin\User\CreateController::class)->name('admin.user.create');
+    Route::post('/store', \App\Http\Controllers\Admin\User\StoreController::class)->name('admin.user.store');
+    Route::get('/{user}/edit', \App\Http\Controllers\Admin\User\EditController::class)->name('admin.user.edit');
+    Route::get('/{user}/show', \App\Http\Controllers\Admin\User\ShowController::class)->name('admin.user.show');
+    Route::post('/{user}/update', \App\Http\Controllers\Admin\User\UpdateController::class)->name('admin.user.update');
+    Route::post('/{user}/delete', \App\Http\Controllers\Admin\User\DeleteController::class)->name('admin.user.delete');
+});

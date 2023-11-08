@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Tag;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Tag\UpdateRequest;
-use App\Models\Tag;
+use App\Http\Requests\Admin\User\UpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 
 class UpdateController extends Controller
 {
-    public function __invoke(UpdateRequest $request, Tag $tag): RedirectResponse
+    public function __invoke(UpdateRequest $request, User $user): RedirectResponse
     {
         $data = $request->validated();
-        $tag->update($data);
+        $user->update($data);
 
-        return redirect()->route('admin.tag.show', $tag)->with('success', 'Successfully updated');
+        return redirect()->route('admin.user.show', $user)->with('success', 'Successfully updated');
     }
 }

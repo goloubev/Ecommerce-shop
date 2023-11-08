@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Tags</h1>
+                        <h1 class="m-0">Users</h1>
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@
             <div class="container-fluid">
                 <div class="row pb-4">
                     <div class="col-1">
-                        <a href="{{ route('admin.tag.create') }}" class="btn btn-block btn-primary">Add new</a>
+                        <a href="{{ route('admin.user.create') }}" class="btn btn-block btn-primary">Add new</a>
                     </div>
                 </div>
 
@@ -30,27 +30,27 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Title</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if(count($tags) > 0)
-                                            @foreach ($tags as $tag)
+                                        @if(count($users) > 0)
+                                            @foreach ($users as $user)
                                                 <tr>
-                                                    <td>{{ $tag->id }}</td>
-                                                    <td>{{ $tag->title }}</td>
+                                                    <td>{{ $user->first_name }} {{ $user->last_name }}</td>
+                                                    <td>{{ $user->email }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.tag.show', ['tag' => $tag]) }}"><i class="fas fa-eye"></i></a>
+                                                        <a href="{{ route('admin.user.show', ['user' => $user]) }}"><i class="fas fa-eye"></i></a>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('admin.tag.edit', ['tag' => $tag]) }}"><i class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin.user.edit', ['user' => $user]) }}"><i class="fas fa-edit"></i></a>
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('admin.tag.delete', ['tag' => $tag]) }}" method="post">
+                                                        <form action="{{ route('admin.user.delete', ['user' => $user]) }}" method="post">
                                                             @csrf
 
                                                             <button type="submit" class="border-0 bg-transparent">

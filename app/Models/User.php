@@ -2,23 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @method static firstOrCreate(array $array, mixed $data)
+ * @property mixed $gender
+ */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory;
+    //use Notifiable;
 
-    const ROLE_ADMIN = 0;
-    // The attributes that are mass assignable
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // Force SQL table name
+    protected $table = 'users';
+
+    // Unlock for modification all SQL table fields
+    protected $guarded = false;
+
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
 
     // The attributes that should be hidden for serialization
     protected $hidden = [
@@ -32,17 +38,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public static function getRoles(): array
+    public function getGenderTitle($gender): string
     {
-        return [
-            self::ROLE_ADMIN => 'Admin',
+        $genders = [
+            self::GENDER_MALE   => 'Male',
+            self::GENDER_FEMALE => 'Female',
         ];
-    }
 
-    public static function getRole($role_id): string
-    {
-        $roles = self::getRoles();
-
-        return $roles[$role_id];
+        return $genders[$gender];
     }
 }

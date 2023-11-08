@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Tag;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 
 class DeleteController extends Controller
 {
-    public function __invoke(Tag $tag): RedirectResponse
+    public function __invoke(User $user): RedirectResponse
     {
-        $tag->delete();
+        $user->delete();
 
-        return redirect()->route('admin.tag.index')->with('success', 'Successfully deleted');
+        return redirect()->route('admin.user.index')->with('success', 'Successfully deleted');
     }
 }
