@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\StoreRequest;
 use App\Models\Product;
+use App\Models\ProductColor;
+use App\Models\ProductTag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -32,14 +34,28 @@ class StoreController extends Controller
                 $data['preview_image'] = Storage::put('/images', $data['preview_image']);
             }
 
-            $product = Product::create($data);
+            $product = Product::firstOrCreate($data);
 
             if (isset($tagIds)) {
-                $product->tags()->attach($tagIds);
+                foreach ($tagIds as $tagId) {
+                    ProductTag::firstOrCreate([
+                        'product_id' => $product->id,
+                        'tag_id' => $tagId,
+                    ]);
+                }
+
+                //$product->tags()->attach($tagIds);
             }
 
             if (isset($colorIds)) {
-                $product->colors()->attach($colorIds);
+                foreach ($colorIds as $colorId) {
+                    ProductColor::firstOrCreate([
+                        'product_id' => $product->id,
+                        'color_id' => $colorId,
+                    ]);
+                }
+
+                //$product->colors()->attach($colorIds);
             }
 
             DB::commit();

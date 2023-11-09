@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @method static create($data)
+ * @method static firstOrCreate(mixed $data)
  * @property mixed        $preview_image
  * @property mixed        $category_id
  * @property mixed|string $categoryName
