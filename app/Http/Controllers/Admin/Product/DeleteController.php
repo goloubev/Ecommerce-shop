@@ -1,17 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Color;
+namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
-use App\Models\Color;
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class DeleteController extends Controller
 {
-    public function __invoke(Color $color): RedirectResponse
+    public function __invoke(Product $product): RedirectResponse
     {
-        $color->delete();
+        if ($product->preview_image != null && Storage::exists($product->preview_image)) {
+            Storage::delete($product->preview_image);
+        }
 
-        return redirect()->route('admin.color.index')->with('success', 'Successfully deleted');
+        $product->delete();
+
+        return redirect()->route('admin.product.index')->with('success', 'Successfully deleted');
     }
 }

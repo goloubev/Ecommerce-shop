@@ -1,17 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Color;
+namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Color;
+use App\Models\Product;
+use App\Models\Tag;
 use Illuminate\Contracts\View\View;
 
 class ShowController extends Controller
 {
-    public function __invoke(Color $color): View
+    public function __invoke(Product $product): View
     {
-        return view('admin/colors/show', [
-            'color' => $color,
+        $product->categoryName = Category::getCategoryTitle($product->category_id);
+        $product->tagsArray = Tag::getTags($product->tags);
+        $product->colorsArray = Color::getColors($product->colors);
+
+        return view('admin/products/show', [
+            'product' => $product,
         ]);
     }
 }

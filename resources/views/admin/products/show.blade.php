@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-5">Category: {{ $category->title }}</h1>
-                        <a href="{{ route('admin.category.edit', $category) }}"><i class="fas fa-edit"></i></a>
+                        <h1 class="m-0 mr-5">Product: {{ $product->title }}</h1>
+                        <a href="{{ route('admin.product.edit', $product) }}"><i class="fas fa-edit"></i></a>
                     </div>
                 </div>
 
@@ -26,11 +26,66 @@
                                     <tbody>
                                         <tr>
                                             <th>ID</th>
-                                            <td>{{ $category->id }}</td>
+                                            <td>{{ $product->id }}</td>
                                         </tr>
                                         <tr>
                                             <th>Title</th>
-                                            <td>{{ $category->title }}</td>
+                                            <td>{{ $product->title }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Description</th>
+                                            <td>{!! $product->description !!}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Content</th>
+                                            <td>{!! $product->content !!}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Preview image</th>
+                                            <td>
+                                                @if($product->preview_image != null && Storage::exists($product->preview_image))
+                                                    <img src="{{ Storage::url($product->preview_image) }}" style="height:60px;" alt="" />
+                                                @else
+                                                    No image
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Price</th>
+                                            <td>{{ $product->price }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Count</th>
+                                            <td>{{ $product->count }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Published</th>
+                                            <td>{{ $product->is_published == '1' ? 'Yes' : 'No' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Category</th>
+                                            <td>{{ $product->categoryName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags</th>
+                                            <td>
+                                                @if(count($product->tagsArray) > 0)
+                                                    @foreach($product->tagsArray as $tag)
+                                                        {{ $tag }}<br />
+                                                    @endforeach
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Colors</th>
+                                            <td>
+                                                @if(count($product->colorsArray) > 0)
+                                                    @foreach($product->colorsArray as $color)
+                                                        <div style="width:16px; height:16px; background:{{ $color }}; display:inline-block;"></div>
+                                                        <div style="display:inline-block;">{{ $color }}</div><br />
+                                                    @endforeach
+                                                @endif
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -43,3 +43,13 @@ Route::group(['prefix' => 'users'], function() {
     Route::post('/{user}/update', \App\Http\Controllers\Admin\User\UpdateController::class)->name('admin.user.update');
     Route::post('/{user}/delete', \App\Http\Controllers\Admin\User\DeleteController::class)->name('admin.user.delete');
 });
+
+Route::group(['prefix' => 'products'], function() {
+    Route::get('/', \App\Http\Controllers\Admin\Product\IndexController::class)->name('admin.product.index');
+    Route::get('/create', \App\Http\Controllers\Admin\Product\CreateController::class)->name('admin.product.create');
+    Route::post('/store', \App\Http\Controllers\Admin\Product\StoreController::class)->name('admin.product.store');
+    Route::get('/{product}/edit', \App\Http\Controllers\Admin\Product\EditController::class)->name('admin.product.edit');
+    Route::get('/{product}/show', \App\Http\Controllers\Admin\Product\ShowController::class)->name('admin.product.show');
+    Route::post('/{product}/update', \App\Http\Controllers\Admin\Product\UpdateController::class)->name('admin.product.update');
+    Route::post('/{product}/delete', \App\Http\Controllers\Admin\Product\DeleteController::class)->name('admin.product.delete');
+});

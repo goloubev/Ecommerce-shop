@@ -38,7 +38,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function getGenderTitle($gender): string
+    public static function getGenderTitle($gender): string
     {
         $genders = [
             self::GENDER_MALE   => 'Male',

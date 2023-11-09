@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Color;
+namespace App\Http\Controllers\Admin\Product;
 
-use App\Models\Color;
+use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 
@@ -10,10 +10,10 @@ class IndexController extends Controller
 {
     public function __invoke(): View
     {
-        $colors = Color::all();
+        $products = Product::all();
 
-        return view('admin/colors/index', [
-            'colors' => $colors,
+        return view('admin/products/index', [
+            'products' => $products,
         ]);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static create(mixed $data)
+ * @method static where(string $string, $category_id)
  */
 class Category extends Model
 {
@@ -18,4 +19,15 @@ class Category extends Model
     // Unlock for modification all SQL table fields
     protected $guarded = false;
 
+    public static function getCategoryTitle($category_id): string
+    {
+        $result = [];
+        $categories = Category::all();
+
+        foreach ($categories as $category) {
+            $result[$category->id] = $category->title;
+        }
+
+        return $result[$category_id];
+    }
 }

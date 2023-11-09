@@ -18,4 +18,14 @@ class Tag extends Model
     // Unlock for modification all SQL table fields
     protected $guarded = false;
 
+    public static function getTags($collection): array
+    {
+        $result = [];
+
+        foreach ($collection as $element) {
+            $result[$element->id] = $element->title;
+        }
+
+        return $result;
+    }
 }

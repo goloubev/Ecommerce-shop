@@ -1,3 +1,7 @@
+@php
+    use App\Models\User;
+@endphp
+
 @extends('admin/layouts/main')
 
 @section('content')
@@ -46,7 +50,7 @@
                                         </tr>
                                         <tr>
                                             <th>Gender</th>
-                                            <td>{{ $user->getGenderTitle($user->gender) }}</td>
+                                            <td>{{ User::getGenderTitle($user->gender) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

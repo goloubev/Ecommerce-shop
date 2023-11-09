@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Color;
+namespace App\Http\Requests\Admin\Product;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,7 +23,16 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'regex:/^#([a-zA-Z0-9]{6})$/', 'unique:colors,title'],
+            'title' => ['required', 'string', 'min:3', 'max:255'],
+            'description' => ['required', 'string'],
+            'content' => ['required', 'string'],
+            'preview_image' => ['required', 'file'],
+            'price' => ['required', 'decimal:0,2'],
+            'count' => ['required', 'integer', 'min:1', 'max:9999'],
+            'is_published' => ['required', 'boolean'],
+            'category_id' => ['nullable'],
+            'tag_ids' => ['nullable', 'array'],
+            'color_ids' => ['nullable', 'array'],
         ];
     }
 }

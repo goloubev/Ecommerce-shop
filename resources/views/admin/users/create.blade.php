@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label>Gender</label>
                                 <select name="gender" class="custom-select form-control">
-                                    <option value="" disabled selected>Gender</option>
+                                    <option value="" disabled selected>Select...</option>
                                     <option value="1" {{ old('gender') == '1' ? 'selected' : '' }}>Male</option>
                                     <option value="2" {{ old('gender') == '2' ? 'selected' : '' }}>Female</option>
                                 </select>
