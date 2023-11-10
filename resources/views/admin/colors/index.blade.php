@@ -31,7 +31,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Title</th>
+                                            <th>Color</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>

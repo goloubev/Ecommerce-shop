@@ -23,8 +23,14 @@
                             @csrf
 
                             <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" name="title" value="{{ $color->title }}" maxlength="7" class="form-control" placeholder="Title">
+                                <label>Color</label>
+
+                                <div class="input-group my-colorpicker2 colorpicker-element" data-colorpicker-id="2">
+                                    <input type="text" name="title" value="{{ $color->title ?? old('title') }}" class="form-control" placeholder="Color">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-square" style="color: {{ $color->title ?? old('title') }}"></i></span>
+                                    </div>
+                                </div>
                                 <x-error name="title" />
                             </div>
                             <div class="form-group">

@@ -29,7 +29,7 @@
                                             <td>{{ $color->id }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Title</th>
+                                            <th>Color</th>
                                             <td>
                                                 <div style="width:16px; height:16px; background:{{ $color->title }}; display:inline-block;"></div>
                                                 <div style="display:inline-block;">{{ $color->title }}</div>
