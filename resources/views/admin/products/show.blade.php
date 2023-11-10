@@ -34,17 +34,19 @@
                                         </tr>
                                         <tr>
                                             <th>Description</th>
-                                            <td>{!! $product->description !!}</td>
+                                            <td style="text-wrap:initial;">{!! $product->description !!}</td>
                                         </tr>
                                         <tr>
                                             <th>Content</th>
-                                            <td>{!! $product->content !!}</td>
+                                            <td style="text-wrap:initial;">{!! $product->content !!}</td>
                                         </tr>
                                         <tr>
                                             <th>Preview image</th>
                                             <td>
                                                 @if($product->preview_image != null && Storage::exists($product->preview_image))
                                                     <img src="{{ Storage::url($product->preview_image) }}" style="height:60px;" alt="" />
+                                                @elseif($product->preview_image != null && file_exists(public_path().$product->preview_image))
+                                                    <img src="{{ $product->preview_image }}" style="height:60px;" alt="" />
                                                 @else
                                                     No image
                                                 @endif

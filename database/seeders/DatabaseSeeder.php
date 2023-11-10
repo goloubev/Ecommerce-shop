@@ -11,8 +11,12 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // php artisan make:seeder ProductsTableSeeder
+        // php artisan make:factory ProductFactory
+
         $this->call(CategoriesTableSeeder::class);
         $this->call(TagsTableSeeder::class);
         $this->call(ColorsTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
     }
 }

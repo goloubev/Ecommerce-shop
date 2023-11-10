@@ -37,25 +37,11 @@ class StoreController extends Controller
             $product = Product::firstOrCreate($data);
 
             if (isset($tagIds)) {
-                foreach ($tagIds as $tagId) {
-                    ProductTag::firstOrCreate([
-                        'product_id' => $product->id,
-                        'tag_id' => $tagId,
-                    ]);
-                }
-
-                //$product->tags()->attach($tagIds);
+                $product->tags()->attach($tagIds);
             }
 
             if (isset($colorIds)) {
-                foreach ($colorIds as $colorId) {
-                    ProductColor::firstOrCreate([
-                        'product_id' => $product->id,
-                        'color_id' => $colorId,
-                    ]);
-                }
-
-                //$product->colors()->attach($colorIds);
+                $product->colors()->attach($colorIds);
             }
 
             DB::commit();
