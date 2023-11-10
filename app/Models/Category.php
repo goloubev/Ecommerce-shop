@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @method static create(mixed $data)
  * @method static where(string $string, $category_id)
+ * @method static inRandomOrder()
  */
 class Category extends Model
 {

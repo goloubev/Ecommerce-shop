@@ -14,10 +14,10 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph(2),
             'content' => '<p>' . implode('</p><p>', fake()->paragraphs(6)) . '</p>',
             'preview_image' => '/images/products/image_' . rand(1, 100) . '.jpg',
-            'price' => (float)rand(100, 300),
+            'price' => (float)rand(10, 300),
             'count' => rand(10, 99),
             'is_published' => '1',
-            'category_id' => Category::query()->inRandomOrder()->first()->id,
+            'category_id' => Category::inRandomOrder()->first()->id,
         ];
     }
 }
