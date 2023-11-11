@@ -19,16 +19,4 @@ class Category extends Model
 
     // Unlock for modification all SQL table fields
     protected $guarded = false;
-
-    public static function getCategoryTitle($category_id): string
-    {
-        $result = [];
-        $categories = Category::all();
-
-        foreach ($categories as $category) {
-            $result[$category->id] = $category->title;
-        }
-
-        return $result[$category_id];
-    }
 }

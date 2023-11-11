@@ -66,7 +66,7 @@
                                         </tr>
                                         <tr>
                                             <th>Category</th>
-                                            <td>{{ $product->categoryName }}</td>
+                                            <td>{{ $product->category->title }}</td>
                                         </tr>
                                         <tr>
                                             <th>Tags</th>

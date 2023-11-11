@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
@@ -11,7 +12,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static firstOrCreate(mixed $data)
  * @property mixed        $preview_image
  * @property mixed        $category_id
- * @property mixed|string $categoryName
  * @property mixed        $tags
  * @property mixed        $colors
  * @property array        $tagsArray
@@ -55,5 +55,12 @@ class Product extends Model
             'color_id'
         );
         return $result;
+    }
+
+    public function category(): BelongsTo
+    {
+        // ONE to ONE
+        // From PRODUCTS (category_id) to CATEGORIES (id)
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 class ProductFactory extends Factory
 {
@@ -13,11 +14,20 @@ class ProductFactory extends Factory
             'title' => ucfirst(fake()->words(3, true)),
             'description' => fake()->paragraph(2),
             'content' => '<p>' . implode('</p><p>', fake()->paragraphs(6)) . '</p>',
-            'preview_image' => '/images/products/image_' . rand(1, 100) . '.jpg',
-            'price' => (float)rand(10, 300),
+            'preview_image' => $this->randomProductImage(),
+            'price' => fake()->randomFloat(2, 10, 300),
             'count' => rand(10, 99),
-            'is_published' => '1',
+            'is_published' => true,
             'category_id' => Category::inRandomOrder()->first()->id,
         ];
+    }
+
+    public function randomProductImage()
+    {
+        $thumbnails = Storage::files('products_fake');
+        $thumbnailsCount = count($thumbnails) - 1;
+        $result = $thumbnails[rand(0, $thumbnailsCount)];
+
+        return $result;
     }
 }

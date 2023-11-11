@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\API\Product;
 
-use App\Models\Category;
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\View\View;
+use App\Http\Resources\Product\ProductResource;
+use App\Models\Product;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class IndexController extends Controller
 {
-    public function __invoke(): View
+    public function __invoke(): AnonymousResourceCollection
     {
-        $categories = Category::all();
+        // php artisan make:resource Product/ProductResource
+        // php artisan make:resource Category/CategoryResource
+        $products = Product::all();
 
-        return view('admin/categories/index', [
-            'categories' => $categories,
-        ]);
+        return ProductResource::collection($products);
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\Tag;
@@ -13,7 +12,6 @@ class ShowController extends Controller
 {
     public function __invoke(Product $product): View
     {
-        $product->categoryName = Category::getCategoryTitle($product->category_id);
         $product->tagsArray = Tag::getTags($product->tags);
         $product->colorsArray = Color::getColors($product->colors);
 
