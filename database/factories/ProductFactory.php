@@ -18,7 +18,7 @@ class ProductFactory extends Factory
             'content' => '<p>' . implode('</p><p>', fake()->paragraphs(6)) . '</p>',
             'preview_image' => $this->randomProductImage(),
             'price' => $price,
-            'price_old' => $price - 30,
+            'price_old' => $price + 30,
             'count' => rand(10, 99),
             'is_published' => true,
             'category_id' => Category::inRandomOrder()->first()->id,
