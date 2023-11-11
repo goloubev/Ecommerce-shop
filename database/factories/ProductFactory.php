@@ -10,12 +10,15 @@ class ProductFactory extends Factory
 {
     public function definition(): array
     {
+        $price = fake()->randomFloat(2, 100, 300);
+
         return [
             'title' => ucfirst(fake()->words(3, true)),
             'description' => fake()->paragraph(2),
             'content' => '<p>' . implode('</p><p>', fake()->paragraphs(6)) . '</p>',
             'preview_image' => $this->randomProductImage(),
-            'price' => fake()->randomFloat(2, 10, 300),
+            'price' => $price,
+            'price_old' => $price - 30,
             'count' => rand(10, 99),
             'is_published' => true,
             'category_id' => Category::inRandomOrder()->first()->id,

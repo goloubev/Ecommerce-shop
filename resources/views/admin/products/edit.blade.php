@@ -53,6 +53,11 @@
                                 <x-error name="price" />
                             </div>
                             <div class="form-group">
+                                <label>Old price</label>
+                                <input type="text" name="price_old" value="{{ $product->price_old ?? old('price_old') }}" class="form-control" placeholder="Old price">
+                                <x-error name="price_old" />
+                            </div>
+                            <div class="form-group">
                                 <label>Quantity</label>
                                 <input type="text" name="count" value="{{ $product->count ?? old('count') }}" class="form-control" placeholder="Quantity">
                                 <x-error name="count" />

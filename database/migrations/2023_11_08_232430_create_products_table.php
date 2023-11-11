@@ -15,6 +15,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('preview_image');
             $table->decimal('price');
+            $table->decimal('price_old')->nullable();
             $table->integer('count');
             $table->boolean('is_published')->default(true);
             $table->foreignId('category_id')

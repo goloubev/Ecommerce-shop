@@ -3,20 +3,11 @@
 namespace App\Http\Resources\Product;
 
 use App\Http\Resources\Category\CategoryResource;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
-/**
- * @property mixed $id
- * @property mixed $title
- * @property mixed $description
- * @property mixed $content
- * @property mixed $preview_image
- * @property mixed $price
- * @property mixed $count
- * @property mixed $is_published
- * @property mixed $category
- */
 class ProductResource extends JsonResource
 {
     /**
@@ -26,17 +17,19 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        /** @var Product $this */
         return [
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'content' => $this->content,
-            'preview_image' => $this->preview_image,
+            'preview_image' => Storage::url($this->preview_image),
             'price' => $this->price,
+            'price_old' => $this->price_old,
             'count' => $this->count,
             'is_published' => $this->is_published,
+            //'category_raw' => $this->category,
             'category' => new CategoryResource($this->category),
-            'category_raw' => $this->category,
         ];
     }
 }

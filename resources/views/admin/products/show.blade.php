@@ -45,8 +45,6 @@
                                             <td>
                                                 @if($product->preview_image != null && Storage::exists($product->preview_image))
                                                     <img src="{{ Storage::url($product->preview_image) }}" style="height:60px;" alt="" />
-                                                @elseif($product->preview_image != null && file_exists(public_path().$product->preview_image))
-                                                    <img src="{{ $product->preview_image }}" style="height:60px;" alt="" />
                                                 @else
                                                     No image
                                                 @endif
@@ -55,6 +53,10 @@
                                         <tr>
                                             <th>Price</th>
                                             <td>{{ $product->price }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Old price</th>
+                                            <td>{{ $product->price_old }}</td>
                                         </tr>
                                         <tr>
                                             <th>Count</th>

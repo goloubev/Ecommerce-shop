@@ -6,16 +6,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @method static create($data)
  * @method static firstOrCreate(mixed $data)
- * @property mixed        $preview_image
- * @property mixed        $category_id
- * @property mixed        $tags
- * @property mixed        $colors
- * @property array        $tagsArray
- * @property array        $colorsArray
+ * @property mixed $category_id
+ * @property mixed $tags
+ * @property mixed $colors
+ * @property array $tagsArray
+ * @property array $colorsArray
+ * @property mixed $preview_image
+ * @property mixed $id
+ * @property mixed $title
+ * @property mixed $description
+ * @property mixed $content
+ * @property mixed $price
+ * @property mixed $price_old
+ * @property mixed $count
+ * @property mixed $is_published
+ * @property mixed $category
  */
 class Product extends Model
 {
