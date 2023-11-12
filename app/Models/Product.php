@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * @method static create($data)
  * @method static firstOrCreate(mixed $data)
+ * @method static where(string $string, mixed $group_id)
  * @property mixed $category_id
  * @property mixed $category
  * @property mixed group_id
