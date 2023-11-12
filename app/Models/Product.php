@@ -19,7 +19,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property mixed $colors
  * @property array $tagsArray
  * @property array $colorsArray
- * @property mixed $preview_image
+ * @property mixed $preview_image_1
+ * @property mixed $preview_image_2
+ * @property mixed $preview_image_3
  * @property mixed $id
  * @property mixed $title
  * @property mixed $description

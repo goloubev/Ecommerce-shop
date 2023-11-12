@@ -13,7 +13,9 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('content');
-            $table->string('preview_image');
+            $table->string('preview_image_1');
+            $table->string('preview_image_2');
+            $table->string('preview_image_3');
             $table->decimal('price');
             $table->decimal('price_old')->nullable();
             $table->integer('count');

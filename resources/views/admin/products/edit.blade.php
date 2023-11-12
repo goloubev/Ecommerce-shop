@@ -38,14 +38,43 @@
                                 <x-error name="content" />
                             </div>
                             <div class="form-group">
-                                <label>Preview image</label>
+                                <label>Preview image 1</label>
+                                @if($product->preview_image_1 != null && Storage::exists($product->preview_image_1))
+                                    <br> <img src="{{ Storage::url($product->preview_image_1) }}" style="height:60px;" alt="" /><br><br>
+                                @endif
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="preview_image" class="custom-file-input">
+                                        <input type="file" name="preview_image_1" class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
-                                <x-error name="preview_image" />
+                                <x-error name="preview_image_1" />
+                            </div>
+                            <div class="form-group">
+                                <label>Preview image 2</label>
+                                @if($product->preview_image_2 != null && Storage::exists($product->preview_image_2))
+                                    <br> <img src="{{ Storage::url($product->preview_image_2) }}" style="height:60px;" alt="" /><br><br>
+                                @endif
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="preview_image_2" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+                                <x-error name="preview_image_2" />
+                            </div>
+                            <div class="form-group">
+                                <label>Preview image 3</label>
+                                @if($product->preview_image_3 != null && Storage::exists($product->preview_image_3))
+                                    <br> <img src="{{ Storage::url($product->preview_image_3) }}" style="height:60px;" alt="" /><br><br>
+                                @endif
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="preview_image_3" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+                                <x-error name="preview_image_3" />
                             </div>
                             <div class="form-group">
                                 <label>Price</label>

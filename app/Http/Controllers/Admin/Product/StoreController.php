@@ -28,8 +28,16 @@ class StoreController extends Controller
                 unset($data['color_ids']);
             }
 
-            if (isset($data['preview_image'])) {
-                $data['preview_image'] = Storage::put('/images', $data['preview_image']);
+            if (isset($data['preview_image_1'])) {
+                $data['preview_image_1'] = Storage::put('/images', $data['preview_image_1']);
+            }
+
+            if (isset($data['preview_image_2'])) {
+                $data['preview_image_2'] = Storage::put('/images', $data['preview_image_2']);
+            }
+
+            if (isset($data['preview_image_3'])) {
+                $data['preview_image_3'] = Storage::put('/images', $data['preview_image_3']);
             }
 
             /** @var Product $product */
