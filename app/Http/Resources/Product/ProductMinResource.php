@@ -22,7 +22,7 @@ class ProductMinResource extends JsonResource
     public function toArray(Request $request): array
     {
         /** @var Product $this */
-        return [
+        $result = [
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
@@ -35,5 +35,6 @@ class ProductMinResource extends JsonResource
             'category' => new CategoryResource($this->category),
             'colors' => ColorResource::collection($this->colors),
         ];
+        return $result;
     }
 }

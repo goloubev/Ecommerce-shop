@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Category;
+namespace App\Http\Resources\Zzz;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -9,7 +9,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property mixed $id
  * @property mixed $title
  */
-class CategoryResource extends JsonResource
+class ZzzResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
