@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Categories</h1>
+                        <h1 class="m-0">Groups</h1>
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@
             <div class="container-fluid">
                 <div class="row pb-4">
                     <div class="col-1">
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">Add new</a>
+                        <a href="{{ route('admin.group.create') }}" class="btn btn-block btn-primary">Add new</a>
                     </div>
                 </div>
 
@@ -38,19 +38,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if(count($categories) > 0)
-                                            @foreach ($categories as $category)
+                                        @if(count($groups) > 0)
+                                            @foreach ($groups as $group)
                                                 <tr>
-                                                    <td>{{ $category->id }}</td>
-                                                    <td>{{ $category->title }}</td>
+                                                    <td>{{ $group->id }}</td>
+                                                    <td>{{ $group->title }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.category.show', ['category' => $category]) }}"><i class="fas fa-eye"></i></a>
+                                                        <a href="{{ route('admin.group.show', ['group' => $group]) }}"><i class="fas fa-eye"></i></a>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('admin.category.edit', ['category' => $category]) }}"><i class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin.group.edit', ['group' => $group]) }}"><i class="fas fa-edit"></i></a>
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('admin.category.delete', ['category' => $category]) }}" method="post">
+                                                        <form action="{{ route('admin.group.delete', ['group' => $group]) }}" method="post">
                                                             @csrf
 
                                                             <button type="submit" class="border-0 bg-transparent">

@@ -71,6 +71,10 @@
                                             <td>{{ $product->category->title }}</td>
                                         </tr>
                                         <tr>
+                                            <th>Group</th>
+                                            <td>{{ $product->group->title }}</td>
+                                        </tr>
+                                        <tr>
                                             <th>Tags</th>
                                             <td>
                                                 @if(count($product->tagsArray) > 0)

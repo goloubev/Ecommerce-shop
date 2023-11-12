@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Group;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Models\Category;
+use App\Http\Requests\Admin\Group\StoreRequest;
+use App\Models\Group;
 use Illuminate\Http\RedirectResponse;
 
 class StoreController extends Controller
@@ -12,8 +12,8 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $categoryId = Category::create($data);
+        $groupId = Group::create($data);
 
-        return redirect()->route('admin.category.show', $categoryId)->with('success', 'Successfully created');
+        return redirect()->route('admin.group.show', $groupId)->with('success', 'Successfully created');
     }
 }

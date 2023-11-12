@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Add new category</h1>
+                        <h1 class="m-0">Add new group</h1>
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-6">
-                        <form action="{{ route('admin.category.store') }}" name="form" id="form" method="post" class="pl-2">
+                        <form action="{{ route('admin.group.store') }}" name="form" id="form" method="post" class="pl-2">
                             @csrf
 
                             <div class="form-group">

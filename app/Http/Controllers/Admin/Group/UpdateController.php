@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Group;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\UpdateRequest;
-use App\Models\Category;
+use App\Http\Requests\Admin\Group\UpdateRequest;
+use App\Models\Group;
 use Illuminate\Http\RedirectResponse;
 
 class UpdateController extends Controller
 {
-    public function __invoke(UpdateRequest $request, Category $category): RedirectResponse
+    public function __invoke(UpdateRequest $request, Group $group): RedirectResponse
     {
         $data = $request->validated();
-        $category->update($data);
+        $group->update($data);
 
-        return redirect()->route('admin.category.show', $category)->with('success', 'Successfully updated');
+        return redirect()->route('admin.group.show', $group)->with('success', 'Successfully updated');
     }
 }

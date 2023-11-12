@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Group;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Group;
 use Illuminate\Http\RedirectResponse;
 
 class DeleteController extends Controller
 {
-    public function __invoke(Category $category): RedirectResponse
+    public function __invoke(Group $group): RedirectResponse
     {
-        $category->delete();
+        $group->delete();
 
-        return redirect()->route('admin.category.index')->with('success', 'Successfully deleted');
+        return redirect()->route('admin.group.index')->with('success', 'Successfully deleted');
     }
 }

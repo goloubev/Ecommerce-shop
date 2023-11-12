@@ -18,12 +18,21 @@ return new class extends Migration
             $table->decimal('price_old')->nullable();
             $table->integer('count');
             $table->boolean('is_published')->default(true);
+
             $table->foreignId('category_id')
                 ->nullable()
                 ->index()
                 ->constrained('categories')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->foreignId('group_id')
+                ->nullable()
+                ->index()
+                ->constrained('groups')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }

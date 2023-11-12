@@ -14,6 +14,16 @@ Route::group(['prefix' => 'categories'], function() {
     Route::post('/{category}/delete', \App\Http\Controllers\Admin\Category\DeleteController::class)->name('admin.category.delete');
 });
 
+Route::group(['prefix' => 'groups'], function() {
+    Route::get('/', \App\Http\Controllers\Admin\Group\IndexController::class)->name('admin.group.index');
+    Route::get('/create', \App\Http\Controllers\Admin\Group\CreateController::class)->name('admin.group.create');
+    Route::post('/store', \App\Http\Controllers\Admin\Group\StoreController::class)->name('admin.group.store');
+    Route::get('/{group}/edit', \App\Http\Controllers\Admin\Group\EditController::class)->name('admin.group.edit');
+    Route::get('/{group}/show', \App\Http\Controllers\Admin\Group\ShowController::class)->name('admin.group.show');
+    Route::post('/{group}/update', \App\Http\Controllers\Admin\Group\UpdateController::class)->name('admin.group.update');
+    Route::post('/{group}/delete', \App\Http\Controllers\Admin\Group\DeleteController::class)->name('admin.group.delete');
+});
+
 Route::group(['prefix' => 'tags'], function() {
     Route::get('/', \App\Http\Controllers\Admin\Tag\IndexController::class)->name('admin.tag.index');
     Route::get('/create', \App\Http\Controllers\Admin\Tag\CreateController::class)->name('admin.tag.create');

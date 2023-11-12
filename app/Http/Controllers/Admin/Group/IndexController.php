@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Group;
 
-use App\Models\Category;
+use App\Models\Group;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 
@@ -10,10 +10,10 @@ class IndexController extends Controller
 {
     public function __invoke(): View
     {
-        $categories = Category::all();
+        $groups = Group::all();
 
-        return view('admin/categories/index', [
-            'categories' => $categories,
+        return view('admin/groups/index', [
+            'groups' => $groups,
         ]);
     }
 }

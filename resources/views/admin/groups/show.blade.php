@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-5">Category: {{ $category->title }}</h1>
-                        <a href="{{ route('admin.category.edit', $category) }}"><i class="fas fa-edit"></i></a>
+                        <h1 class="m-0 mr-5">Group: {{ $group->title }}</h1>
+                        <a href="{{ route('admin.group.edit', $group) }}"><i class="fas fa-edit"></i></a>
                     </div>
                 </div>
 
@@ -26,11 +26,11 @@
                                     <tbody>
                                         <tr>
                                             <th>ID</th>
-                                            <td>{{ $category->id }}</td>
+                                            <td>{{ $group->id }}</td>
                                         </tr>
                                         <tr>
                                             <th>Title</th>
-                                            <td>{{ $category->title }}</td>
+                                            <td>{{ $group->title }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

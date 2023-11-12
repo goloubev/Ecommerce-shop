@@ -86,6 +86,20 @@
                                 <x-error name="category_id" />
                             </div>
                             <div class="form-group">
+                                <label>Group</label>
+                                <select name="group_id" class="custom-select form-control" style="width:100%;">
+                                    <option value="">Select...</option>
+
+                                    @foreach($groups as $group)
+                                        <option
+                                            value="{{ $group->id }}"
+                                            {{ $group->id == $product->group_id || $group->id == old('group_id') ? 'selected' : '' }}
+                                        >{{ $group->title }}</option>
+                                    @endforeach
+                                </select>
+                                <x-error name="group_id" />
+                            </div>
+                            <div class="form-group">
                                 <label>Tags</label>
                                 <select name="tag_ids[]" class="select2" multiple="multiple" data-placeholder="Select your tags" style="width:100%;">
                                     @foreach($tags as $tag)

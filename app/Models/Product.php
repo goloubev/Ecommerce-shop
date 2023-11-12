@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * @method static create($data)
  * @method static firstOrCreate(mixed $data)
  * @property mixed $category_id
+ * @property mixed $category
+ * @property mixed group_id
+ * @property mixed $group
  * @property mixed $tags
  * @property mixed $colors
  * @property array $tagsArray
@@ -25,7 +27,6 @@ use Illuminate\Support\Facades\Storage;
  * @property mixed $price_old
  * @property mixed $count
  * @property mixed $is_published
- * @property mixed $category
  */
 class Product extends Model
 {
@@ -72,5 +73,12 @@ class Product extends Model
         // ONE to ONE
         // From PRODUCTS (category_id) to CATEGORIES (id)
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function group(): BelongsTo
+    {
+        // ONE to ONE
+        // From PRODUCTS (group_id) to GROUPS (id)
+        return $this->belongsTo(Group::class, 'group_id', 'id');
     }
 }

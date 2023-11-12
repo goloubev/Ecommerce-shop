@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Product;
 
 use App\Http\Resources\Category\CategoryResource;
+use App\Http\Resources\Group\GroupResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -28,8 +29,8 @@ class ProductResource extends JsonResource
             'price_old' => $this->price_old,
             'count' => $this->count,
             'is_published' => $this->is_published,
-            //'category_raw' => $this->category,
             'category' => new CategoryResource($this->category),
+            'group' => new GroupResource($this->group),
         ];
     }
 }

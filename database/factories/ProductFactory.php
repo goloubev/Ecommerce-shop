@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,6 +23,7 @@ class ProductFactory extends Factory
             'count' => rand(10, 99),
             'is_published' => true,
             'category_id' => Category::inRandomOrder()->first()->id,
+            'group_id' => Group::inRandomOrder()->first()->id,
         ];
     }
 

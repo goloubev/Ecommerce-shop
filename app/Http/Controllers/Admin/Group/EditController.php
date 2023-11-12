@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Group;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Group;
 use Illuminate\Contracts\View\View;
 
 class EditController extends Controller
 {
-    public function __invoke(Category $category): View
+    public function __invoke(Group $group): View
     {
-        return view('admin/categories/edit', [
-            'category' => $category
+        return view('admin/groups/edit', [
+            'group' => $group
         ]);
     }
 }
