@@ -52,7 +52,6 @@
                                                     <td>
                                                         <form action="{{ route('admin.category.delete', ['category' => $category]) }}" method="post">
                                                             @csrf
-
                                                             <button type="submit" class="border-0 bg-transparent">
                                                                 <i class="fas fa-trash text-danger" role="button"></i>
                                                             </button>

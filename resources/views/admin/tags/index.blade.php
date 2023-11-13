@@ -52,7 +52,6 @@
                                                     <td>
                                                         <form action="{{ route('admin.tag.delete', ['tag' => $tag]) }}" method="post">
                                                             @csrf
-
                                                             <button type="submit" class="border-0 bg-transparent">
                                                                 <i class="fas fa-trash text-danger" role="button"></i>
                                                             </button>

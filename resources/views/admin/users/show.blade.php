@@ -11,7 +11,6 @@
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
                         <h1 class="m-0 mr-5">User: {{ $user->title }}</h1>
-                        <a href="{{ route('admin.user.edit', $user) }}"><i class="fas fa-edit"></i></a>
                     </div>
                 </div>
 
@@ -22,6 +21,17 @@
 
         <section class="content">
             <div class="container-fluid">
+                <div class="row pb-4">
+                    <div class="col-1">
+                        <a href="{{ route('admin.user.edit', $user) }}" class="btn btn-block btn-primary">Edit</a>
+                    </div>
+                    <div class="col-1">
+                        <form action="{{ route('admin.user.delete', ['user' => $user]) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-block btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
