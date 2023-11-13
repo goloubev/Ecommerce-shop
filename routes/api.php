@@ -9,3 +9,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // http://ecommerce_shop.local/api/products
 Route::get('/products', \App\Http\Controllers\Admin\API\Product\IndexController::class);
+
+// http://ecommerce_shop.local/api/products/1
+Route::get('/products/{product}', \App\Http\Controllers\Admin\API\Product\ShowController::class);

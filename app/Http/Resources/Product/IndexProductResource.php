@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 /**
  * @property mixed $group_id
  */
-class ProductResource extends JsonResource
+class IndexProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,8 +21,6 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $products = Product::where('group_id', $this->group_id)->get();
-
         /** @var Product $this */
         return [
             'id' => $this->id,
@@ -38,7 +36,6 @@ class ProductResource extends JsonResource
             'is_published' => $this->is_published,
             'category' => new CategoryResource($this->category),
             'colors' => ColorResource::collection($this->colors),
-            'group_products' => ProductMinResource::collection($products),
         ];
     }
 }

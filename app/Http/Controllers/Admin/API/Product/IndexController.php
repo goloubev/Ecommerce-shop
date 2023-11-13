@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\API\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Product\ProductResource;
+use App\Http\Resources\Product\IndexProductResource;
 use App\Models\Product;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -15,6 +15,6 @@ class IndexController extends Controller
         // php artisan make:resource Category/CategoryResource
         $products = Product::all();
 
-        return ProductResource::collection($products);
+        return IndexProductResource::collection($products);
     }
 }
