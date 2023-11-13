@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Filter;
+namespace App\Http\Filters;
 
 interface FilterInterface
 {

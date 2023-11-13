@@ -32,6 +32,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>
+                                            <th>Group</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -43,6 +44,7 @@
                                                 <tr>
                                                     <td>{{ $product->id }}</td>
                                                     <td>{{ $product->title }}</td>
+                                                    <td>{{ $product->group->title }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.product.show', ['product' => $product]) }}"><i class="fas fa-eye"></i></a>
                                                     </td>

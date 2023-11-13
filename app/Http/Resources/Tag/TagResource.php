@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Color;
+namespace App\Http\Resources\Tag;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -9,7 +9,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property mixed $id
  * @property mixed $title
  */
-class ColorResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

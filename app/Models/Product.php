@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,6 +13,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static create($data)
  * @method static firstOrCreate(mixed $data)
  * @method static where(string $string, mixed $group_id)
+ * @method static orderBy(string $string, string $string1)
+ * @method static min(string $string)
+ * @method static max(string $string)
  * @property mixed $category_id
  * @property mixed $category
  * @property mixed group_id
@@ -34,7 +38,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, Filterable;
 
     // Force SQL table name
     protected $table = 'products';
