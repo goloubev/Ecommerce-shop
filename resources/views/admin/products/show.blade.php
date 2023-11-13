@@ -41,33 +41,13 @@
                                             <td style="text-wrap:initial;">{!! $product->content !!}</td>
                                         </tr>
                                         <tr>
-                                            <th>Preview image 1</th>
+                                            <th>Images</th>
                                             <td>
-                                                @if($product->preview_image_1 != null && Storage::exists($product->preview_image_1))
-                                                    <img src="{{ Storage::url($product->preview_image_1) }}" style="height:60px;" alt="" />
-                                                @else
-                                                    No image
-                                                @endif
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Preview image 2</th>
-                                            <td>
-                                                @if($product->preview_image_2 != null && Storage::exists($product->preview_image_2))
-                                                    <img src="{{ Storage::url($product->preview_image_2) }}" style="height:60px;" alt="" />
-                                                @else
-                                                    No image
-                                                @endif
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Preview image 3</th>
-                                            <td>
-                                                @if($product->preview_image_3 != null && Storage::exists($product->preview_image_3))
-                                                    <img src="{{ Storage::url($product->preview_image_3) }}" style="height:60px;" alt="" />
-                                                @else
-                                                    No image
-                                                @endif
+                                                @foreach($product->images as $image)
+                                                    @if($image->file_path != null && Storage::exists($image->file_path))
+                                                        <img src="{{ Storage::url($image->file_path) }}" style="height:60px;" alt="" />
+                                                    @endif
+                                                @endforeach
                                             </td>
                                         </tr>
                                         <tr>

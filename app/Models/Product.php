@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static create($data)
@@ -19,9 +20,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property mixed $colors
  * @property array $tagsArray
  * @property array $colorsArray
- * @property mixed $preview_image_1
- * @property mixed $preview_image_2
- * @property mixed $preview_image_3
  * @property mixed $id
  * @property mixed $title
  * @property mixed $description
@@ -30,6 +28,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property mixed $price_old
  * @property mixed $count
  * @property mixed $is_published
+ * @property mixed $product_id
+ * @property mixed $file_path
+ * @property mixed $images
  */
 class Product extends Model
 {
@@ -67,6 +68,20 @@ class Product extends Model
             'product_colors',
             'product_id',
             'color_id'
+        );
+        return $result;
+    }
+
+    public function images(): HasMany
+    {
+        // ONE to MANY
+        // From PRODUCTS to IMAGES
+        // Table: product_images
+        // product_id -> id
+        $result = $this->hasMany(
+            ProductImage::class,
+            'product_id',
+            'id'
         );
         return $result;
     }

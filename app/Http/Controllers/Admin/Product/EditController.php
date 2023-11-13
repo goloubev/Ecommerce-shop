@@ -18,6 +18,7 @@ class EditController extends Controller
         $groups = Group::all();
         $tags = Tag::all();
         $colors = Color::all();
+        $images = $product->images->pluck('file_path')->toArray();
 
         return view('admin/products/edit', [
             'product' => $product,
@@ -25,6 +26,7 @@ class EditController extends Controller
             'groups' => $groups,
             'tags' => $tags,
             'colors' => $colors,
+            'images' => $images,
         ]);
     }
 }

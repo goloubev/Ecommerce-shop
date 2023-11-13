@@ -11,16 +11,10 @@ class DeleteController extends Controller
 {
     public function __invoke(Product $product): RedirectResponse
     {
-        if ($product->preview_image_1 != null && Storage::exists($product->preview_image_1)) {
-            Storage::delete($product->preview_image_1);
-        }
-
-        if ($product->preview_image_2 != null && Storage::exists($product->preview_image_2)) {
-            Storage::delete($product->preview_image_2);
-        }
-
-        if ($product->preview_image_3 != null && Storage::exists($product->preview_image_3)) {
-            Storage::delete($product->preview_image_3);
+        foreach ($product->images as $image) {
+            if ($image->file_path != null && Storage::exists($image->file_path)) {
+                Storage::delete($image->file_path);
+            }
         }
 
         $product->delete();

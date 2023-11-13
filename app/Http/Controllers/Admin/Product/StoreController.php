@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\StoreRequest;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -28,16 +29,9 @@ class StoreController extends Controller
                 unset($data['color_ids']);
             }
 
-            if (isset($data['preview_image_1'])) {
-                $data['preview_image_1'] = Storage::put('/images', $data['preview_image_1']);
-            }
-
-            if (isset($data['preview_image_2'])) {
-                $data['preview_image_2'] = Storage::put('/images', $data['preview_image_2']);
-            }
-
-            if (isset($data['preview_image_3'])) {
-                $data['preview_image_3'] = Storage::put('/images', $data['preview_image_3']);
+            if (isset($data['product_images'])) {
+                $productImages = $data['product_images'];
+                unset($data['product_images']);
             }
 
             /** @var Product $product */
@@ -49,6 +43,19 @@ class StoreController extends Controller
 
             if (isset($colorIds)) {
                 $product->colors()->attach($colorIds);
+            }
+
+            if (isset($productImages)) {
+                foreach ($productImages as $productImage) {
+                    if (isset($productImage)) {
+                        $filePath = Storage::put('/images', $productImage);
+
+                        ProductImage::create([
+                            'product_id' => $product->id,
+                            'file_path' => $filePath,
+                        ]);
+                    }
+                }
             }
 
             DB::commit();

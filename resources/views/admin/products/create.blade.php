@@ -38,34 +38,34 @@
                                 <x-error name="content" />
                             </div>
                             <div class="form-group">
-                                <label>Preview image 1</label>
+                                <label>Product image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="preview_image_1" class="custom-file-input">
+                                        <input type="file" name="product_images[]" class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
-                                <x-error name="preview_image_1" />
+                                <x-error name="product_images" />
                             </div>
                             <div class="form-group">
-                                <label>Preview image 2</label>
+                                <label>Product image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="preview_image_2" class="custom-file-input">
+                                        <input type="file" name="product_images[]" class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
-                                <x-error name="preview_image_2" />
+                                <x-error name="product_images" />
                             </div>
                             <div class="form-group">
-                                <label>Preview image 3</label>
+                                <label>Product image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="preview_image_3" class="custom-file-input">
+                                        <input type="file" name="product_images[]" class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
-                                <x-error name="preview_image_3" />
+                                <x-error name="product_images" />
                             </div>
                             <div class="form-group">
                                 <label>Price</label>
