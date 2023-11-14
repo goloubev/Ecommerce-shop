@@ -11,7 +11,7 @@ class ProductFactory extends Factory
 {
     public function definition(): array
     {
-        $price = fake()->randomFloat(2, 100, 300);
+        $price = fake()->randomFloat(2, 10, 300);
 
         return [
             'title' => ucfirst(fake()->words(3, true)),

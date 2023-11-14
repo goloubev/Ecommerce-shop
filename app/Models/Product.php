@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static orderBy(string $string, string $string1)
  * @method static min(string $string)
  * @method static max(string $string)
+ * @method static filter(mixed $filter)
  * @property mixed $category_id
  * @property mixed $category
  * @property mixed group_id

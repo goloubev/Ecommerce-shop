@@ -9,6 +9,6 @@ class TagsTableSeeder extends Seeder
 {
     public function run(): void
     {
-        Tag::factory(20)->create();
+        Tag::factory(5)->create();
     }
 }

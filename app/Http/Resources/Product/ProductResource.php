@@ -31,7 +31,7 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'price_old' => $this->price_old,
             'count' => $this->count,
-            //'is_published' => $this->is_published,
+            'is_published' => $this->is_published,
             'category' => new CategoryResource($this->category),
             'colors' => ColorResource::collection($this->colors),
             'images' => ProductImageResource::collection($this->images),

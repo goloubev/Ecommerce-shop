@@ -9,7 +9,7 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => 'TAG-'.ucfirst(fake()->words(1, true)),
+            'title' => ucfirst(fake()->words(1, true)),
         ];
     }
 }

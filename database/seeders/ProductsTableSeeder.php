@@ -13,7 +13,7 @@ class ProductsTableSeeder extends Seeder
 {
     public function run(): void
     {
-        $productIds = Product::factory(4)->create();
+        $productIds = Product::factory(21)->create();
 
         /** @var Product $product */
         foreach ($productIds as $product) {
