@@ -55,7 +55,7 @@ class ProductFilter extends AbstractFilter
         $acceptedSorts = ['asc', 'desc'];
         [$fieldName, $sortOrder] = explode('|', $value, 2);
 
-        if (in_arrayw($fieldName, $acceptedFields) && in_array(strToLower($sortOrder), $acceptedSorts)) {
+        if (in_array($fieldName, $acceptedFields) && in_array(strToLower($sortOrder), $acceptedSorts)) {
             $builder->orderBy($fieldName, $sortOrder);
         }
     }

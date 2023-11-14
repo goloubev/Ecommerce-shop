@@ -19,6 +19,10 @@ class IndexController extends Controller
     {
         $data = $request->validated();
 
+        if (!isset($data['order'])) {
+            //$data['order'] = 'title|asc';
+        }
+
         $filter = app()->make(ProductFilter::class, [
             'queryParams' => array_filter($data)
         ]);
