@@ -20,7 +20,7 @@ class IndexController extends Controller
         $data = $request->validated();
 
         if (!isset($data['order'])) {
-            //$data['order'] = 'title|asc';
+            $data['order'] = 'title|asc';
         }
 
         $filter = app()->make(ProductFilter::class, [
