@@ -29,7 +29,7 @@ class IndexController extends Controller
 
         // php artisan make:resource Product/ProductResource
         // php artisan make:resource Category/CategoryResource
-        $products = Product::filter($filter)->get();
+        $products = Product::filter($filter)->paginate(3, ['*'], 'page', $data['page']);
         $result = IndexProductResource::collection($products);
 
         return $result;
