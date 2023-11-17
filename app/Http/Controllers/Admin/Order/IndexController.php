@@ -12,6 +12,10 @@ class IndexController extends Controller
     {
         $orders = Order::all();
 
+        foreach ($orders as $order) {
+            $order->products = json_decode($order->products);
+        }
+
         return view('admin/orders/index', [
             'orders' => $orders,
         ]);
