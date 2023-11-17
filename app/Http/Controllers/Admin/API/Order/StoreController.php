@@ -3,29 +3,35 @@
 namespace App\Http\Controllers\Admin\API\Order;
 
 use App\Http\Controllers\Controller;
-use App\Http\Filters\ProductFilter;
-use App\Http\Resources\Product\IndexProductResource;
-use App\Models\Product;
+use App\Http\Requests\API\Order\StoreRequest;
+use App\Http\Resources\Order\OrderResource;
+use App\Models\Order;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class IndexController extends Controller
+class StoreController extends Controller
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
 
-        if (!isset($data['order'])) {
-            $data['order'] = 'title|asc';
-        }
+        $password = Hash::make('123');
 
-        $filter = app()->make(ProductFilter::class, [
-            'queryParams' => array_filter($data)
+        $user = User::firstOrCreate([
+            'email' => $data['email'] // unique
+        ], [
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'address' => $data['address'],
+            'password' => $password,
         ]);
 
-        // php artisan make:resource Product/ProductResource
-        // php artisan make:resource Category/CategoryResource
-        $products = Product::filter($filter)->paginate(3, ['*'], 'page', $data['page']);
-        $result = IndexProductResource::collection($products);
+        $order = Order::create([
+            'products' => json_encode($data['products']),
+            'total_price' => $data['total_price'],
+            'user_id' => $user->id,
+        ]);
 
-        return $result;
+        return new OrderResource($order);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Requests\API\Order;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndexRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,11 @@ class IndexRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'categories' => ['nullable', 'array'],
-            'colors' => ['nullable', 'array'],
-            'tags' => ['nullable', 'array'],
-            'prices' => ['nullable', 'array'],
-            'order' => ['nullable', 'string'],
-            'page' => ['required', 'integer'],
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'products' => ['required', 'array'],
+            'total_price' => ['required'],
         ];
     }
 }

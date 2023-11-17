@@ -16,3 +16,6 @@ Route::get('/products/filters', \App\Http\Controllers\Admin\API\Product\FilterLi
 
 // http://ecommerce_shop.local/api/products/1
 Route::get('/products/{product}', \App\Http\Controllers\Admin\API\Product\ShowController::class);
+
+// http://ecommerce_shop.local/api/orders
+Route::post('/orders', \App\Http\Controllers\Admin\API\Order\StoreController::class);

@@ -12,7 +12,6 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $data['name'] = $data['first_name'].' '.$data['last_name'];
 
         $userId = User::firstOrCreate([
             'email' => $data['email'] // Unique email

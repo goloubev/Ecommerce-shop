@@ -10,7 +10,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-5">User: {{ $user->title }}</h1>
+                        <h1 class="m-0 mr-5">User: {{ $user->name }}</h1>
                     </div>
                 </div>
 
@@ -39,29 +39,32 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                         <tr>
-                                            <th>First name</th>
-                                            <td>{{ $user->first_name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Last name</th>
-                                            <td>{{ $user->last_name }}</td>
+                                            <th>Name</th>
+                                            <td>{{ $user->name }}</td>
                                         </tr>
                                         <tr>
                                             <th>Email</th>
                                             <td>{{ $user->email }}</td>
                                         </tr>
-                                        <tr>
-                                            <th>Age</th>
-                                            <td>{{ $user->age }}</td>
-                                        </tr>
+
+                                        @if(isset($user->age))
+                                            <tr>
+                                                <th>Age</th>
+                                                <td>{{ $user->age }}</td>
+                                            </tr>
+                                        @endif
+
                                         <tr>
                                             <th>Address</th>
                                             <td>{{ $user->address }}</td>
                                         </tr>
-                                        <tr>
-                                            <th>Gender</th>
-                                            <td>{{ User::getGenderTitle($user->gender) }}</td>
-                                        </tr>
+
+                                        @if(isset($user->gender))
+                                            <tr>
+                                                <th>Gender</th>
+                                                <td>{{ User::getGenderTitle($user->gender) }}</td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

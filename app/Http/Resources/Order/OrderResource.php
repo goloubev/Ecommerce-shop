@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Resources\Color;
+namespace App\Http\Resources\Order;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * @property mixed $id
- * @property mixed $title
+ * @property mixed $user_id
+ * @property mixed $products
+ * @property mixed $total_price
+ * @property mixed $payment_status
  */
-class ColorResource extends JsonResource
+class OrderResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,7 +23,10 @@ class ColorResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
+            'user_id' => $this->user_id,
+            'total_price' => $this->total_price,
+            'payment_status' => $this->payment_status,
+            'products' => json_decode($this->products),
         ];
     }
 }

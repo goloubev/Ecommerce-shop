@@ -23,14 +23,9 @@
                             @csrf
 
                             <div class="form-group">
-                                <label>First name</label>
-                                <input type="text" name="first_name" value="{{ $user->first_name ?? old('first_name') }}" class="form-control" placeholder="First name">
-                                <x-error name="first_name" />
-                            </div>
-                            <div class="form-group">
-                                <label>Last name</label>
-                                <input type="text" name="last_name" value="{{ $user->last_name ?? old('last_name') }}" class="form-control" placeholder="Last name">
-                                <x-error name="last_name" />
+                                <label>Name</label>
+                                <input type="text" name="name" value="{{ $user->name ?? old('name') }}" class="form-control" placeholder="Name">
+                                <x-error name="name" />
                             </div>
                             <div class="form-group">
                                 <label>Age</label>

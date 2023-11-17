@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.main.index');
 
+Route::group(['prefix' => 'orders'], function()
+{
+    Route::get('/', \App\Http\Controllers\Admin\Order\IndexController::class)->name('admin.order.index');
+});
+
 Route::group(['prefix' => 'categories'], function() {
     Route::get('/', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
     Route::get('/create', \App\Http\Controllers\Admin\Category\CreateController::class)->name('admin.category.create');

@@ -40,11 +40,17 @@ class User extends Authenticatable
 
     public static function getGenderTitle($gender): string
     {
-        $genders = [
-            self::GENDER_MALE   => 'Male',
-            self::GENDER_FEMALE => 'Female',
-        ];
+        $result = '';
 
-        return $genders[$gender];
+        if (isset($gender)) {
+            $genders = [
+                self::GENDER_MALE   => 'Male',
+                self::GENDER_FEMALE => 'Female',
+            ];
+
+            $result = $genders[$gender];
+        }
+
+        return $result;
     }
 }
